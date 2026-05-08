@@ -1074,14 +1074,15 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 1rem;
-        padding: 0 1.5rem 1.25rem;
+        scroll-padding-left: 0.5rem;
+        gap: 0.75rem;
+        padding: 0 0.5rem 1.25rem;
         scrollbar-width: none;
       }
       .programas__grid::-webkit-scrollbar { display: none; }
       .prog-card {
-        flex: 0 0 85%;
-        scroll-snap-align: center;
+        flex: 0 0 calc(100vw - 1rem);
+        scroll-snap-align: start;
         padding: 2rem 1.5rem;
       }
 
