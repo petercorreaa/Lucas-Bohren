@@ -358,6 +358,7 @@
       border: 1px solid rgba(59, 130, 246, 0.2);
       border-radius: 12px;
       padding: 2.5rem 2rem;
+      min-height: 240px;
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -1063,12 +1064,14 @@
       #metodo               { padding: 4.5rem 1.5rem; }
       .metodo__header       { margin-bottom: 2.5rem; }
       .metodo__grid         { grid-template-columns: 1fr; gap: 1rem; }
-      .metodo__card         { padding: 2rem 1.5rem; }
+      .metodo__card         { padding: 2rem 1.5rem; min-height: 200px; }
       .metodo__step         { font-size: 2.25rem; }
 
       /* ── Programas ── */
       #programas            { padding: 4.5rem 0; }
       .programas__header    { margin-bottom: 2.5rem; padding: 0 1.5rem; }
+      .prog-card,
+      .prog-card.visible    { opacity: 1; transform: none; transition: border-color 0.25s ease, box-shadow 0.25s ease; }
       .programas__grid {
         display: flex;
         overflow-x: auto;
@@ -1078,10 +1081,11 @@
         gap: 0.75rem;
         padding: 0 0.5rem 1.25rem;
         scrollbar-width: none;
+        touch-action: pan-x;
       }
       .programas__grid::-webkit-scrollbar { display: none; }
       .prog-card {
-        flex: 0 0 calc(100vw - 1rem);
+        flex: 0 0 calc(90vw - 1rem);
         scroll-snap-align: start;
         padding: 2rem 1.5rem;
       }
@@ -1125,7 +1129,8 @@
       .metodo__name         { font-size: 1.15rem; }
 
       /* ── Programas ── */
-      #programas            { padding: 4rem 1.25rem; }
+      #programas            { padding: 4rem 0; }
+      .programas__header    { padding: 0 1.25rem; }
       .prog-card            { padding: 1.75rem 1.25rem; gap: 1.25rem; }
       .prog-card__title     { font-size: 1.2rem; }
       .prog-card__cta a     { padding: 0.8rem 1.25rem; }
