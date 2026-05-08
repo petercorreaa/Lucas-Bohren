@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Bohren — Entrenamiento Comercial</title>
+  <meta name="description" content="Entrenamiento comercial práctico para vendedores y equipos que buscan mejorar sus cierres en menos de 90 días. Método 4C — de asesores a cerradores." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Lucas Bohren — Entrenamiento Comercial" />
+  <meta property="og:description" content="Entrenamiento comercial práctico para vendedores y equipos que buscan mejorar sus cierres en menos de 90 días. Método 4C — de asesores a cerradores." />
+
+  <!-- Google Fonts: Lexend (700, 800) + DM Sans (300, 400, 500) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ─── CSS VARIABLES ─────────────────────────────────────── */
+    :root {
+      /* Colors */
+      --color-bg:       #111827;
+      --color-navy:     #0F172A;
+      --color-white:    #F9FAFB;
+      --color-gray:     #9CA3AF;
+      --color-blue:     #3B82F6;
+
+      /* Typography */
+      --font-display: 'Lexend', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    /* ─── RESET ─────────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ─── BASE ──────────────────────────────────────────────── */
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-white);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════════════════════ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(17, 24, 39, 0.85); /* --color-bg at 85% */
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(249, 250, 251, 0.06);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    .navbar__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    /* Logo */
+    .navbar__logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--color-white);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Links */
+    .navbar__links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .navbar__links a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--color-gray);
+      letter-spacing: 0.01em;
+      transition: color 0.2s ease;
+    }
+
+    .navbar__links a:hover {
+      color: var(--color-white);
+    }
+
+    /* CTA */
+    .navbar__cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.25rem;
+      background: var(--color-blue);
+      color: #fff;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.875rem;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .navbar__cta:hover {
+      background: #2563EB;
+      transform: translateY(-1px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      /* offset for fixed navbar */
+      padding-top: 68px;
+    }
+
+    /* subtle grid texture */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(249, 250, 251, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(249, 250, 251, 0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    /* blue radial glow, top-center */
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    /* Eyebrow */
+    .hero__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 1.5rem;
+
+      /* animation */
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.1s;
+    }
+
+    /* Headline */
+    .hero__headline {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.25rem, 5.5vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--color-white);
+      margin-bottom: 1.75rem;
+
+      /* animation */
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.25s;
+    }
+
+    /* Subheadline */
+    .hero__sub {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 2vw, 1.175rem);
+      line-height: 1.7;
+      color: var(--color-gray);
+      max-width: 600px;
+      margin: 0 auto 2.75rem;
+
+      /* animation */
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    /* Button group */
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      /* animation */
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+      animation-delay: 0.55s;
+    }
+
+    /* Primary button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.85rem 2rem;
+      background: var(--color-blue);
+      color: #fff;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(59, 130, 246, 0.35);
+    }
+
+    /* Secondary / outline button */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid rgba(249, 250, 251, 0.25);
+      border-radius: 6px;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--color-white);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Keyframe ──────────────────────────────────────────── */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       MÉTODO 4C
+    ═══════════════════════════════════════════════════════════ */
+    #metodo {
+      padding: 7rem 2rem;
+      background-color: var(--color-bg);
+    }
+
+    .metodo__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Section header */
+    .metodo__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .metodo__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 1rem;
+    }
+
+    .metodo__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--color-white);
+    }
+
+    /* 2×2 grid */
+    .metodo__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    /* Card */
+    .metodo__card {
+      background: var(--color-navy);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition:
+        border-color 0.25s ease,
+        box-shadow   0.25s ease,
+        transform    0.25s ease;
+
+      /* scroll-reveal initial state */
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .metodo__card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .metodo__card:hover {
+      border-color: var(--color-blue);
+      box-shadow: 0 0 28px rgba(59, 130, 246, 0.15);
+      transform: translateY(-3px);
+    }
+
+    /* Step number */
+    .metodo__step {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--color-blue);
+      letter-spacing: -0.04em;
+    }
+
+    /* Card name */
+    .metodo__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      color: var(--color-white);
+    }
+
+    /* Card description */
+    .metodo__desc {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.975rem;
+      line-height: 1.65;
+      color: var(--color-gray);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PROGRAMAS
+    ═══════════════════════════════════════════════════════════ */
+    #programas {
+      padding: 7rem 2rem;
+      background-color: var(--color-bg);
+    }
+
+    .programas__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Section header */
+    .programas__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .programas__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 1rem;
+    }
+
+    .programas__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--color-white);
+    }
+
+    /* Side-by-side grid */
+    .programas__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    /* ── Base card ────────────────────────────────────────────── */
+    .prog-card {
+      background: var(--color-navy);
+      border: 1px solid rgba(59, 130, 246, 0.18);
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+      /* scroll-reveal */
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .prog-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .prog-card:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 0 32px rgba(59, 130, 246, 0.1);
+    }
+
+    /* ── Featured (B2B) card ──────────────────────────────────── */
+    .prog-card--featured {
+      border-color: var(--color-blue);
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.14);
+      position: relative;
+    }
+
+    .prog-card--featured:hover {
+      border-color: var(--color-blue);
+      box-shadow: 0 0 52px rgba(59, 130, 246, 0.24);
+    }
+
+    /* ── Card top row: badge(s) ───────────────────────────────── */
+    .prog-card__badges {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .prog-badge {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: var(--color-blue);
+      background: rgba(59, 130, 246, 0.08);
+    }
+
+    /* "Más completo" pill — brighter fill */
+    .prog-badge--highlight {
+      background: var(--color-blue);
+      border-color: var(--color-blue);
+      color: #fff;
+    }
+
+    /* ── Card heading block ───────────────────────────────────── */
+    .prog-card__heading {}
+
+    .prog-card__audience {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: var(--color-gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .prog-card__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--color-white);
+    }
+
+    /* ── Feature list ─────────────────────────────────────────── */
+    .prog-card__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      list-style: none;
+    }
+
+    .prog-card__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.925rem;
+      line-height: 1.5;
+      color: var(--color-gray);
+    }
+
+    /* Blue SVG checkmark icon */
+    .prog-check {
+      flex-shrink: 0;
+      margin-top: 2px;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(59, 130, 246, 0.12);
+      border-radius: 50%;
+    }
+
+    .prog-check svg {
+      display: block;
+    }
+
+    /* ── CTA button ───────────────────────────────────────────── */
+    .prog-card__cta {
+      margin-top: auto;
+    }
+
+    .prog-card__cta a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.9rem 1.5rem;
+      background: var(--color-blue);
+      color: #fff;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .prog-card__cta a:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(59, 130, 246, 0.35);
+    }
+
+    /* ── Divider inside card ──────────────────────────────────── */
+    .prog-card__divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(249, 250, 251, 0.07);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESULTADOS
+    ═══════════════════════════════════════════════════════════ */
+    #resultados {
+      padding: 7rem 2rem;
+      background-color: var(--color-bg);
+    }
+
+    .resultados__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .resultados__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .resultados__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 1rem;
+    }
+
+    .resultados__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--color-white);
+    }
+
+    /* Stats row */
+    .resultados__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .stat-card {
+      background: var(--color-navy);
+      border: 1px solid rgba(59, 130, 246, 0.18);
+      border-radius: 12px;
+      padding: 2.25rem 2rem;
+      text-align: center;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+      /* equal height + vertically centered content */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      /* reveal */
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .stat-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stat-card:hover {
+      border-color: rgba(59, 130, 246, 0.45);
+      box-shadow: 0 0 28px rgba(59, 130, 246, 0.1);
+    }
+
+    .stat-card__number {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      line-height: 1;
+      color: var(--color-blue);
+      letter-spacing: -0.04em;
+      margin-bottom: 0.6rem;
+    }
+
+    .stat-card__label {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--color-gray);
+    }
+
+    /* Outcomes list */
+    .resultados__outcomes {
+      background: var(--color-navy);
+      border: 1px solid rgba(59, 130, 246, 0.18);
+      border-radius: 14px;
+      padding: 2.5rem 2.5rem;
+
+      /* reveal */
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .resultados__outcomes.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .outcomes__label {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* Draggable card stack */
+    .outcomes__stack {
+      position: relative;
+      height: 340px;
+      margin-top: 1.5rem;
+      touch-action: none;
+    }
+
+    .outcome-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% - 2rem);
+      height: 80px;
+      background: var(--color-bg);
+      border: 1px solid rgba(59, 130, 246, 0.28);
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .outcome-card.is-dragging {
+      cursor: grabbing;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(59, 130, 246, 0.45);
+    }
+
+    .outcome-card__num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--color-blue);
+      flex-shrink: 0;
+      letter-spacing: -0.02em;
+      min-width: 36px;
+    }
+
+    .outcome-card__text {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      color: var(--color-gray);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════════════════════════ */
+    #faq {
+      padding: 7rem 2rem;
+      background-color: var(--color-bg);
+    }
+
+    .faq__inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .faq__header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .faq__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 1rem;
+    }
+
+    .faq__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--color-white);
+    }
+
+    /* Accordion list */
+    .faq__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* Single item */
+    .faq__item {
+      background: var(--color-navy);
+      border: 1px solid rgba(59, 130, 246, 0.18);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .faq__item.is-open {
+      border-color: rgba(59, 130, 246, 0.55);
+    }
+
+    /* Trigger button */
+    .faq__trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.975rem;
+      line-height: 1.4;
+      transition: color 0.2s ease;
+    }
+
+    .faq__item.is-open .faq__trigger {
+      color: var(--color-blue);
+    }
+
+    /* +/× icon */
+    .faq__icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      position: relative;
+      border-radius: 50%;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .faq__item.is-open .faq__icon {
+      background: var(--color-blue);
+      border-color: var(--color-blue);
+    }
+
+    /* horizontal bar (always visible) */
+    .faq__icon::before,
+    .faq__icon::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: var(--color-gray);
+      border-radius: 2px;
+      transition: transform 0.3s ease, background 0.25s ease;
+    }
+
+    /* horizontal */
+    .faq__icon::before {
+      width: 10px;
+      height: 1.5px;
+      transform: translate(-50%, -50%);
+    }
+
+    /* vertical — rotates to 0 when open (forms ×) */
+    .faq__icon::after {
+      width: 1.5px;
+      height: 10px;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq__item.is-open .faq__icon::before,
+    .faq__item.is-open .faq__icon::after {
+      background: #fff;
+    }
+
+    .faq__item.is-open .faq__icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    /* Collapsible body — height animated via max-height */
+    .faq__body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .faq__body-inner {
+      padding: 0 1.5rem 1.4rem;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.925rem;
+      line-height: 1.7;
+      color: var(--color-gray);
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       HAMBURGER — hidden on desktop
+    ═══════════════════════════════════════════════════════════ */
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .navbar__hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-white);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center;
+    }
+
+    /* X state */
+    .navbar__hamburger.is-open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .navbar__hamburger.is-open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .navbar__hamburger.is-open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile drawer */
+    .navbar__drawer {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      width: 100%;
+      background: rgba(17, 24, 39, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+      padding: 2rem 1.5rem 2.5rem;
+      flex-direction: column;
+      gap: 0;
+      z-index: 99;
+      /* slide-down animation */
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: transform 0.28s ease, opacity 0.28s ease;
+    }
+
+    .navbar__drawer.is-open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .navbar__drawer li {
+      list-style: none;
+      border-bottom: 1px solid rgba(249, 250, 251, 0.06);
+    }
+
+    .navbar__drawer li:last-child {
+      border-bottom: none;
+    }
+
+    .navbar__drawer a {
+      display: block;
+      padding: 1rem 0;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-gray);
+      transition: color 0.2s ease;
+    }
+
+    .navbar__drawer a:hover {
+      color: var(--color-white);
+    }
+
+    .navbar__drawer .drawer__cta {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar__drawer .drawer__cta a {
+      display: inline-flex;
+      padding: 0.8rem 2rem;
+      background: var(--color-blue);
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .navbar__drawer .drawer__cta a:hover {
+      background: #2563EB;
+      color: #fff;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE — 768px (tablet)
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* ── Navbar ── */
+      .navbar__links,
+      .navbar__cta          { display: none; }
+      .navbar__hamburger    { display: flex; }
+
+      /* ── Hero ── */
+      #hero                 { padding-top: 68px; }
+
+      .hero__inner          { padding: 3.5rem 1.5rem; }
+
+      .hero__sub            { max-width: 100%; }
+
+      /* ── Método 4C ── */
+      #metodo               { padding: 4.5rem 1.5rem; }
+      .metodo__header       { margin-bottom: 2.5rem; }
+      .metodo__grid         { grid-template-columns: 1fr; gap: 1rem; }
+      .metodo__card         { padding: 2rem 1.5rem; }
+      .metodo__step         { font-size: 2.25rem; }
+
+      /* ── Programas ── */
+      #programas            { padding: 4.5rem 1.5rem; }
+      .programas__header    { margin-bottom: 2.5rem; }
+      .programas__grid      { grid-template-columns: 1fr; gap: 1.25rem; }
+      .prog-card            { padding: 2rem 1.5rem; }
+
+      /* ── Resultados ── */
+      #resultados           { padding: 4.5rem 1.5rem; }
+      .resultados__header   { margin-bottom: 2.5rem; }
+      .resultados__stats    { grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+      .resultados__outcomes { padding: 1.75rem 1.5rem; }
+      /* third stat card fills full width on 2-col layout */
+      .stat-card:last-child { grid-column: 1 / -1; }
+
+      /* ── FAQ ── */
+      #faq                  { padding: 4.5rem 1.5rem; }
+      .faq__header          { margin-bottom: 2.5rem; }
+      .faq__trigger         { padding: 1.1rem 1.25rem; font-size: 0.925rem; }
+      .faq__body-inner      { padding: 0 1.25rem 1.2rem; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE — 480px (mobile)
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 480px) {
+
+      /* ── Hero ── */
+      .hero__inner          { padding: 3rem 1.25rem; }
+      .hero__actions        { flex-direction: column; align-items: stretch; }
+      .btn-primary,
+      .btn-outline          { justify-content: center; width: 100%; }
+      .hero__headline       { letter-spacing: -0.02em; }
+
+      /* ── Navbar ── */
+      .navbar__inner        { padding: 0 1.25rem; }
+
+      /* ── Método 4C ── */
+      #metodo               { padding: 4rem 1.25rem; }
+      .metodo__card         { padding: 1.75rem 1.25rem; gap: 0.75rem; }
+      .metodo__step         { font-size: 2rem; }
+      .metodo__name         { font-size: 1.15rem; }
+
+      /* ── Programas ── */
+      #programas            { padding: 4rem 1.25rem; }
+      .prog-card            { padding: 1.75rem 1.25rem; gap: 1.25rem; }
+      .prog-card__title     { font-size: 1.2rem; }
+      .prog-card__cta a     { padding: 0.8rem 1.25rem; }
+
+      /* ── Resultados ── */
+      #resultados           { padding: 4rem 1.25rem; }
+      .resultados__stats    { grid-template-columns: 1fr; }
+      .stat-card:last-child { grid-column: auto; }
+      .stat-card            { padding: 1.5rem 1.25rem; }
+      .stat-card__number    { font-size: 2.25rem; }
+      .resultados__outcomes { padding: 1.5rem 1.25rem; }
+
+      /* ── FAQ ── */
+      #faq                  { padding: 4rem 1.25rem; }
+      .faq__trigger         { padding: 1rem 1rem; gap: 1rem; font-size: 0.9rem; }
+      .faq__body-inner      { padding: 0 1rem 1rem; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════ */
+    #footer {
+      background-color: var(--color-bg);
+      border-top: 1px solid rgba(59, 130, 246, 0.12);
+    }
+
+    .footer__cta {
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle blue radial glow behind CTA */
+    .footer__cta::before {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .footer__cta-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer__cta-headline {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--color-white);
+      max-width: 640px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .footer__cta-sub {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--color-gray);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+    }
+
+    .footer__cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.25rem;
+      background: var(--color-blue);
+      color: #fff;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      border-radius: 6px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .footer__cta-btn:hover {
+      background: #2563EB;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(59, 130, 246, 0.35);
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(249, 250, 251, 0.06);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer__copy {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: var(--color-gray);
+    }
+
+    @media (max-width: 480px) {
+      .footer__cta          { padding: 4rem 1.25rem 3.5rem; }
+      .footer__cta-btn      { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar__inner">
+
+      <a href="#hero" class="navbar__logo">Lucas Bohren</a>
+
+      <ul class="navbar__links">
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#programas">Programas</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+
+      <a href="#footer" class="navbar__cta">Agendar llamada</a>
+
+      <button
+        class="navbar__hamburger"
+        id="hamburger"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobileDrawer"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile drawer -->
+    <ul class="navbar__drawer" id="mobileDrawer" aria-hidden="true">
+      <li><a href="#metodo"    class="drawer-link">Método</a></li>
+      <li><a href="#programas" class="drawer-link">Programas</a></li>
+      <li><a href="#faq"       class="drawer-link">FAQ</a></li>
+      <li class="drawer__cta"><a href="#footer" class="drawer-link">Agendar llamada</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- ═══ HERO ══════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero__inner">
+
+      <span class="hero__eyebrow">Entrenamiento Comercial</span>
+
+      <h1 class="hero__headline">
+        De asesores a cerradores<br />en menos de 90 días
+      </h1>
+
+      <p class="hero__sub">
+        Entrenamiento comercial práctico para vendedores y equipos que buscan mejorar sus cierres en menos de 90 días
+      </p>
+
+      <div class="hero__actions">
+        <a href="#programas" class="btn-primary">Quiero entrenarme</a>
+        <a href="#programas" class="btn-outline">Ver programas</a>
+      </div>
+
+    </div>
+  </section>
+  <!-- ═══ MÉTODO 4C ════════════════════════════════════════════ -->
+  <section id="metodo">
+    <div class="metodo__inner">
+
+      <div class="metodo__header">
+        <span class="metodo__eyebrow">El sistema</span>
+        <h2 class="metodo__title">El Método 4C</h2>
+      </div>
+
+      <div class="metodo__grid">
+
+        <div class="metodo__card">
+          <span class="metodo__step">01</span>
+          <h3 class="metodo__name">Conexión</h3>
+          <p class="metodo__desc">Primera impresión, autoridad y comunicación inicial.</p>
+        </div>
+
+        <div class="metodo__card">
+          <span class="metodo__step">02</span>
+          <h3 class="metodo__name">Comprensión</h3>
+          <p class="metodo__desc">Descubrimiento profundo y análisis del cliente.</p>
+        </div>
+
+        <div class="metodo__card">
+          <span class="metodo__step">03</span>
+          <h3 class="metodo__name">Claridad</h3>
+          <p class="metodo__desc">Presentación de soluciones adaptadas a la necesidad del cliente.</p>
+        </div>
+
+        <div class="metodo__card">
+          <span class="metodo__step">04</span>
+          <h3 class="metodo__name">Conversión</h3>
+          <p class="metodo__desc">Acuerdo, seguimiento y cierre.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ═══ PROGRAMAS ════════════════════════════════════════════ -->
+  <section id="programas">
+    <div class="programas__inner">
+
+      <div class="programas__header">
+        <span class="programas__eyebrow">Formación</span>
+        <h2 class="programas__title">Programas de entrenamiento</h2>
+      </div>
+
+      <div class="programas__grid">
+
+        <!-- ── B2C ─────────────────────────────────────────────── -->
+        <div class="prog-card" data-prog>
+          <div class="prog-card__badges">
+            <span class="prog-badge">Para Individuos</span>
+          </div>
+
+          <div class="prog-card__heading">
+            <p class="prog-card__audience">Vendedores, closers, asesores</p>
+            <h3 class="prog-card__title">Mentoría Comercial</h3>
+          </div>
+
+          <hr class="prog-card__divider" />
+
+          <ul class="prog-card__list">
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Clases en vivo
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Martes: Mentalidad y teoría
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Jueves: Neuroventas, objeciones y cierres
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Sábados: Role play y práctica en vivo
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Psicología de ventas
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Manejo de objeciones
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Seguimiento estratégico
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Comunidad privada
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Grabaciones de clases
+            </li>
+          </ul>
+
+          <div class="prog-card__cta">
+            <a href="#">Quiero entrenarme</a>
+          </div>
+        </div>
+
+        <!-- ── B2B ─────────────────────────────────────────────── -->
+        <div class="prog-card prog-card--featured" data-prog>
+          <div class="prog-card__badges">
+            <span class="prog-badge">Para Empresas</span>
+            <span class="prog-badge prog-badge--highlight">Más completo</span>
+          </div>
+
+          <div class="prog-card__heading">
+            <h3 class="prog-card__title">Entrenamiento para Equipos Comerciales</h3>
+          </div>
+
+          <hr class="prog-card__divider" />
+
+          <ul class="prog-card__list">
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Clases privadas para el equipo
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Entrenamiento personalizado
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Role play grupal
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Análisis de llamadas
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Seguimiento comercial
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Capacitación en cierres
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Prospección comercial
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Neuroventas aplicadas
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Acceso a clases grupales
+            </li>
+            <li>
+              <span class="prog-check">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#3B82F6" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              Desarrollo de procesos comerciales
+            </li>
+          </ul>
+
+          <div class="prog-card__cta">
+            <a href="#">Consultar para mi equipo</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ═══ RESULTADOS ═══════════════════════════════════════════ -->
+  <section id="resultados">
+    <div class="resultados__inner">
+
+      <div class="resultados__header">
+        <span class="resultados__eyebrow">Impacto</span>
+        <h2 class="resultados__title">Resultados</h2>
+      </div>
+
+      <!-- Stats row -->
+      <div class="resultados__stats">
+
+        <div class="stat-card" data-stat>
+          <div class="stat-card__number">+3 años</div>
+          <div class="stat-card__label">entrenando vendedores</div>
+        </div>
+
+        <div class="stat-card" data-stat>
+          <div class="stat-card__number">LATAM</div>
+          <div class="stat-card__label">equipos entrenados</div>
+        </div>
+
+        <div class="stat-card" data-stat>
+          <div class="stat-card__number">Real Estate</div>
+          <div class="stat-card__label">inversiones · ventas consultivas</div>
+        </div>
+
+      </div>
+
+      <!-- Outcomes list -->
+      <div class="resultados__outcomes" data-outcomes>
+        <span class="outcomes__label">Lo que logran nuestros alumnos</span>
+        <div class="outcomes__stack">
+          <div class="outcome-card" data-card="0">
+            <span class="outcome-card__num">01</span>
+            <p class="outcome-card__text">Mejor manejo de objeciones</p>
+          </div>
+          <div class="outcome-card" data-card="1">
+            <span class="outcome-card__num">02</span>
+            <p class="outcome-card__text">Mayor seguridad en llamadas y presentaciones</p>
+          </div>
+          <div class="outcome-card" data-card="2">
+            <span class="outcome-card__num">03</span>
+            <p class="outcome-card__text">Mejora en seguimiento comercial</p>
+          </div>
+          <div class="outcome-card" data-card="3">
+            <span class="outcome-card__num">04</span>
+            <p class="outcome-card__text">Desarrollo de procesos comerciales</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══════════════════════════════════════════════════ -->
+  <section id="faq">
+    <div class="faq__inner">
+
+      <div class="faq__header">
+        <span class="faq__eyebrow">Preguntas frecuentes</span>
+        <h2 class="faq__title">FAQ</h2>
+      </div>
+
+      <div class="faq__list" id="faqList">
+
+        <div class="faq__item">
+          <button class="faq__trigger" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
+            ¿Las clases son en vivo?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-a1" role="region" aria-labelledby="faq-q1">
+            <div class="faq__body-inner">
+              Sí, todas las clases son en vivo y prácticas.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__trigger" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+            ¿Es solo para Real Estate?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-a2" role="region" aria-labelledby="faq-q2">
+            <div class="faq__body-inner">
+              No. Trabajamos con vendedores y equipos comerciales de distintos nichos.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__trigger" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+            ¿Cómo funcionan las prácticas?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-a3" role="region" aria-labelledby="faq-q3">
+            <div class="faq__body-inner">
+              Los sábados realizamos role plays y simulaciones reales de ventas.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__trigger" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+            ¿Las empresas tienen entrenamiento personalizado?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-a4" role="region" aria-labelledby="faq-q4">
+            <div class="faq__body-inner">
+              Sí. El programa B2B incluye sesiones privadas adaptadas al equipo comercial.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__trigger" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+            ¿Las clases quedan grabadas?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-a5" role="region" aria-labelledby="faq-q5">
+            <div class="faq__body-inner">
+              Sí.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item">
+          <button class="faq__trigger" id="faq-q6" aria-expanded="false" aria-controls="faq-a6">
+            ¿Hay seguimiento?
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-a6" role="region" aria-labelledby="faq-q6">
+            <div class="faq__body-inner">
+              Sí. El enfoque está basado en práctica, feedback y mejora continua.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer id="footer">
+
+    <div class="footer__cta">
+      <span class="footer__cta-eyebrow">Empezá hoy</span>
+      <h2 class="footer__cta-headline">¿Listo para convertirte en un cerrador?</h2>
+      <p class="footer__cta-sub">Agendá una llamada y encontrá el programa que mejor se adapta a vos o a tu equipo.</p>
+      <!-- Replace the href with your real WhatsApp or Calendly link -->
+      <a
+        href="https://wa.me/5491100000000"
+        class="footer__cta-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Agendar llamada por WhatsApp"
+      >
+        Agendar llamada
+      </a>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 Lucas Bohren. Todos los derechos reservados.</p>
+    </div>
+
+  </footer>
+
+  <script>
+    // Navbar shadow on scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // Hamburger menu toggle
+    const hamburger   = document.getElementById('hamburger');
+    const drawer      = document.getElementById('mobileDrawer');
+    let   menuOpen    = false;
+
+    function openMenu() {
+      menuOpen = true;
+      hamburger.classList.add('is-open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      drawer.classList.add('is-open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menuOpen = false;
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      menuOpen ? closeMenu() : openMenu();
+    });
+
+    // Close drawer when any drawer link is tapped
+    drawer.querySelectorAll('.drawer-link').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close drawer when clicking outside
+    document.addEventListener('click', (e) => {
+      if (menuOpen && !navbar.contains(e.target)) closeMenu();
+    });
+
+    // Método 4C — staggered scroll-reveal
+    const metodoCards = document.querySelectorAll('.metodo__card');
+
+    // Shared helper: reveal an element with a staggered delay, then clear the
+    // inline transition so CSS hover transitions (border-color, box-shadow, etc.)
+    // are not overridden by the lingering inline style.
+    function revealEl(el, duration, delay) {
+      el.style.transition = `opacity ${duration} ease ${delay}, transform ${duration} ease ${delay}`;
+      el.classList.add('visible');
+      el.addEventListener('transitionend', () => { el.style.transition = ''; }, { once: true });
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const card  = entry.target;
+        const index = [...metodoCards].indexOf(card);
+        revealEl(card, '0.55s', `${index * 120}ms`);
+        revealObserver.unobserve(card);
+      });
+    }, { threshold: 0.15 });
+
+    metodoCards.forEach((card) => revealObserver.observe(card));
+
+    // Programas — staggered scroll-reveal (left card first, right card 150ms later)
+    const progCards = document.querySelectorAll('[data-prog]');
+
+    const progObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const card  = entry.target;
+        const index = [...progCards].indexOf(card);
+        revealEl(card, '0.6s', `${index * 150}ms`);
+        progObserver.unobserve(card);
+      });
+    }, { threshold: 0.12 });
+
+    progCards.forEach((card) => progObserver.observe(card));
+
+    // Resultados — stat cards staggered reveal
+    const statCards = document.querySelectorAll('[data-stat]');
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el    = entry.target;
+        const index = [...statCards].indexOf(el);
+        revealEl(el, '0.55s', `${index * 120}ms`);
+        statObserver.unobserve(el);
+      });
+    }, { threshold: 0.15 });
+
+    statCards.forEach((el) => statObserver.observe(el));
+
+    // Resultados — outcomes block reveal
+    const outcomesEl = document.querySelector('[data-outcomes]');
+
+    const outcomesObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        revealEl(entry.target, '0.6s', '0.15s');
+        outcomesObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+
+    if (outcomesEl) outcomesObserver.observe(outcomesEl);
+
+    // FAQ — accordion (one item open at a time, height animated)
+    const faqList = document.getElementById('faqList');
+
+    faqList.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.faq__trigger');
+      if (!trigger) return;
+
+      const item     = trigger.closest('.faq__item');
+      const body     = item.querySelector('.faq__body');
+      const isOpen   = item.classList.contains('is-open');
+
+      // close every item
+      faqList.querySelectorAll('.faq__item.is-open').forEach((openItem) => {
+        openItem.classList.remove('is-open');
+        openItem.querySelector('.faq__trigger').setAttribute('aria-expanded', 'false');
+        openItem.querySelector('.faq__body').style.maxHeight = '0';
+      });
+
+      // open the clicked one if it was closed
+      if (!isOpen) {
+        item.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        // measure the natural height for a smooth transition
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+    // Outcome cards — draggable stack, cards stay where dropped, clamped to container
+    (function () {
+      const stackEl = document.querySelector('.outcomes__stack');
+      if (!stackEl) return;
+
+      const cards     = [...stackEl.querySelectorAll('.outcome-card')];
+      const rotations = [-1, 2, -2.5, 3.5];
+      const yStagger  = [-10, -4, 4, 10]; // spread around center
+      const positions = [];
+      let   topZ      = cards.length;
+
+      function init() {
+        const sw = stackEl.offsetWidth;
+        const sh = stackEl.offsetHeight;
+        cards.forEach((card, i) => {
+          positions[i] = {
+            x: (sw - card.offsetWidth)  / 2,
+            y: (sh - card.offsetHeight) / 2 + yStagger[i],
+          };
+          card.style.zIndex = cards.length - i;
+          applyTransform(card, i);
+        });
+      }
+
+      function applyTransform(card, i) {
+        const { x, y } = positions[i];
+        card.style.transform =
+          `translateX(${x}px) translateY(${y}px) rotate(${rotations[i]}deg)`;
+      }
+
+      init();
+
+      cards.forEach((card, i) => {
+        card.addEventListener('pointerdown', (e) => {
+          e.preventDefault();
+          card.setPointerCapture(e.pointerId);
+          card.classList.add('is-dragging');
+          card.style.zIndex = ++topZ;
+
+          const ox     = e.clientX;
+          const oy     = e.clientY;
+          const startX = positions[i].x;
+          const startY = positions[i].y;
+
+          function onMove(e) {
+            const sw = stackEl.offsetWidth;
+            const sh = stackEl.offsetHeight;
+            const cw = card.offsetWidth;
+            const ch = card.offsetHeight;
+            positions[i].x = Math.max(0, Math.min(sw - cw, startX + (e.clientX - ox)));
+            positions[i].y = Math.max(0, Math.min(sh - ch, startY + (e.clientY - oy)));
+            applyTransform(card, i);
+          }
+
+          function onUp() {
+            card.classList.remove('is-dragging');
+            card.removeEventListener('pointermove',   onMove);
+            card.removeEventListener('pointerup',     onUp);
+            card.removeEventListener('pointercancel', onUp);
+          }
+
+          card.addEventListener('pointermove',   onMove);
+          card.addEventListener('pointerup',     onUp);
+          card.addEventListener('pointercancel', onUp);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
