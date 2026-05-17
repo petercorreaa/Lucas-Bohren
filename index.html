@@ -324,6 +324,55 @@
     }
 
     /* ═══════════════════════════════════════════════════════════
+       INTRO
+    ═══════════════════════════════════════════════════════════ */
+    #intro {
+      padding: 5rem 2rem;
+    }
+
+    .intro__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .intro__text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.75;
+      color: var(--color-gray);
+    }
+
+    .intro__video {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.12);
+    }
+
+    .intro__vid {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      #intro              { padding: 3.5rem 1.5rem; }
+      .intro__inner       { grid-template-columns: 1fr; gap: 2rem; }
+      .intro__video       { order: -1; }
+    }
+
+    @media (max-width: 480px) {
+      #intro              { padding: 3rem 1.25rem; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
        ABOUT
     ═══════════════════════════════════════════════════════════ */
     #about {
@@ -400,7 +449,7 @@
       border: 1px solid rgba(59, 130, 246, 0.2);
       border-radius: 12px;
       padding: 2.5rem 2rem;
-      min-height: 240px;
+      min-height: 0;
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -423,6 +472,15 @@
       border-color: var(--color-blue);
       box-shadow: 0 0 28px rgba(59, 130, 246, 0.15);
       transform: translateY(-3px);
+    }
+
+    /* Card image */
+    .metodo__card-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      margin-bottom: 0.25rem;
     }
 
     /* Step number */
@@ -781,35 +839,24 @@
       display: block;
     }
 
-    /* Draggable card stack */
+    /* Outcome card grid */
     .outcomes__stack {
-      position: relative;
-      height: 340px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
       margin-top: 1.5rem;
-      touch-action: none;
     }
 
     .outcome-card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: calc(100% - 2rem);
-      height: 80px;
-      background: #050505;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(59, 130, 246, 0.28);
       border-radius: 12px;
       padding: 1.25rem 1.75rem;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      cursor: grab;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    .outcome-card.is-dragging {
-      cursor: grabbing;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(59, 130, 246, 0.45);
+      gap: 1.25rem;
     }
 
     .outcome-card__num {
@@ -1192,6 +1239,7 @@
       .stat-card            { padding: 1.5rem 1.25rem; }
       .stat-card__number    { font-size: 2.25rem; }
       .resultados__outcomes { padding: 1.5rem 1.25rem; }
+      .outcomes__stack      { grid-template-columns: 1fr; }
 
       /* ── FAQ ── */
       #faq                  { padding: 4rem 1.25rem; }
@@ -1354,45 +1402,62 @@
         Entrenamiento comercial práctico para vendedores y equipos que buscan mejorar sus cierres en menos de 90 días
       </p>
 
-      <div class="hero__callout">
+    </div>
+  </section>
+  <!-- ═══ INTRO ══════════════════════════════════════════════════ -->
+  <section id="intro">
+    <div class="intro__inner">
+      <div class="intro__text">
         <p>Entrené vendedores y equipos comerciales en Latinoamérica ayudándolos a mejorar su comunicación, seguimiento y cierres mediante entrenamiento práctico, role play y psicología de ventas.</p>
         <p>Mi enfoque está basado en práctica real, análisis, seguimiento y desarrollo de habilidad comercial.</p>
       </div>
-
+      <div class="intro__video">
+        <video
+          src="Assets/Bohren Video.mp4"
+          controls
+          playsinline
+          class="intro__vid"
+        ></video>
+      </div>
     </div>
   </section>
+
   <!-- ═══ MÉTODO 4C ════════════════════════════════════════════ -->
   <section id="metodo">
     <div class="metodo__inner">
 
       <div class="metodo__header">
         <span class="metodo__eyebrow">El sistema</span>
-        <h2 class="metodo__title">El Método 4C</h2>
+        <h2 class="metodo__title">El Método ISDA</h2>
       </div>
 
       <div class="metodo__grid">
 
         <div class="metodo__card">
+          <img src="Assets/1. Impresion.webp" alt="Impresión" class="metodo__card-img" />
           <span class="metodo__step">01</span>
-          <h3 class="metodo__name">Conexión</h3>
+          <h3 class="metodo__name">Impresión</h3>
           <p class="metodo__desc">Primera impresión, autoridad y comunicación inicial.</p>
         </div>
 
         <div class="metodo__card">
+          <img src="Assets/2. Descubrimiento.webp" alt="Descubrimiento" class="metodo__card-img" />
           <span class="metodo__step">02</span>
-          <h3 class="metodo__name">Comprensión</h3>
+          <h3 class="metodo__name">Descubrimiento</h3>
           <p class="metodo__desc">Descubrimiento profundo y análisis del cliente.</p>
         </div>
 
         <div class="metodo__card">
+          <img src="Assets/3. Solucion.webp" alt="Solución" class="metodo__card-img" />
           <span class="metodo__step">03</span>
-          <h3 class="metodo__name">Claridad</h3>
+          <h3 class="metodo__name">Solución</h3>
           <p class="metodo__desc">Presentación de soluciones adaptadas a la necesidad del cliente.</p>
         </div>
 
         <div class="metodo__card">
+          <img src="Assets/4. Acuerdo.webp" alt="Acuerdo" class="metodo__card-img" />
           <span class="metodo__step">04</span>
-          <h3 class="metodo__name">Conversión</h3>
+          <h3 class="metodo__name">Acuerdo</h3>
           <p class="metodo__desc">Acuerdo, seguimiento y cierre.</p>
         </div>
 
@@ -1995,73 +2060,6 @@
         body.style.maxHeight = body.scrollHeight + 'px';
       }
     });
-    // Outcome cards — draggable stack, cards stay where dropped, clamped to container
-    (function () {
-      const stackEl = document.querySelector('.outcomes__stack');
-      if (!stackEl) return;
-
-      const cards     = [...stackEl.querySelectorAll('.outcome-card')];
-      const rotations = [-1, 2, -2.5, 3.5];
-      const yStagger  = [-10, -4, 4, 10]; // spread around center
-      const positions = [];
-      let   topZ      = cards.length;
-
-      function init() {
-        const sw = stackEl.offsetWidth;
-        const sh = stackEl.offsetHeight;
-        cards.forEach((card, i) => {
-          positions[i] = {
-            x: (sw - card.offsetWidth)  / 2,
-            y: (sh - card.offsetHeight) / 2 + yStagger[i],
-          };
-          card.style.zIndex = cards.length - i;
-          applyTransform(card, i);
-        });
-      }
-
-      function applyTransform(card, i) {
-        const { x, y } = positions[i];
-        card.style.transform =
-          `translateX(${x}px) translateY(${y}px) rotate(${rotations[i]}deg)`;
-      }
-
-      init();
-
-      cards.forEach((card, i) => {
-        card.addEventListener('pointerdown', (e) => {
-          e.preventDefault();
-          card.setPointerCapture(e.pointerId);
-          card.classList.add('is-dragging');
-          card.style.zIndex = ++topZ;
-
-          const ox     = e.clientX;
-          const oy     = e.clientY;
-          const startX = positions[i].x;
-          const startY = positions[i].y;
-
-          function onMove(e) {
-            const sw = stackEl.offsetWidth;
-            const sh = stackEl.offsetHeight;
-            const cw = card.offsetWidth;
-            const ch = card.offsetHeight;
-            positions[i].x = Math.max(0, Math.min(sw - cw, startX + (e.clientX - ox)));
-            positions[i].y = Math.max(0, Math.min(sh - ch, startY + (e.clientY - oy)));
-            applyTransform(card, i);
-          }
-
-          function onUp() {
-            card.classList.remove('is-dragging');
-            card.removeEventListener('pointermove',   onMove);
-            card.removeEventListener('pointerup',     onUp);
-            card.removeEventListener('pointercancel', onUp);
-          }
-
-          card.addEventListener('pointermove',   onMove);
-          card.addEventListener('pointerup',     onUp);
-          card.addEventListener('pointercancel', onUp);
-        });
-      });
-    })();
   </script>
 
 </body>
