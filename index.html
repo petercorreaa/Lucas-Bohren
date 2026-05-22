@@ -886,6 +886,70 @@
     }
 
     /* ═══════════════════════════════════════════════════════════
+       TESTIMONIOS
+    ═══════════════════════════════════════════════════════════ */
+    #testimonios {
+      padding: 7rem 2rem;
+    }
+
+    .testimonios__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonios__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .testimonios__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 1rem;
+    }
+
+    .testimonios__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--color-white);
+    }
+
+    .testimonios__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .testimonio-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .testimonio-card:hover {
+      border-color: rgba(59, 130, 246, 0.45);
+      box-shadow: 0 0 32px rgba(59, 130, 246, 0.1);
+    }
+
+    .testimonio-card__video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
        FAQ
     ═══════════════════════════════════════════════════════════ */
     #faq {
@@ -1204,6 +1268,11 @@
       /* third stat card fills full width on 2-col layout */
       .stat-card:last-child { grid-column: 1 / -1; }
 
+      /* ── Testimonios ── */
+      #testimonios          { padding: 4.5rem 1.5rem; }
+      .testimonios__header  { margin-bottom: 2.5rem; }
+      .testimonios__grid    { grid-template-columns: 1fr; }
+
       /* ── FAQ ── */
       #faq                  { padding: 4.5rem 1.5rem; }
       .faq__header          { margin-bottom: 2.5rem; }
@@ -1248,6 +1317,9 @@
       .stat-card__number    { font-size: 2.25rem; }
       .resultados__outcomes { padding: 1.5rem 1.25rem; }
       .outcomes__stack      { grid-template-columns: 1fr; }
+
+      /* ── Testimonios ── */
+      #testimonios          { padding: 4rem 1.25rem; }
 
       /* ── FAQ ── */
       #faq                  { padding: 4rem 1.25rem; }
@@ -1742,6 +1814,37 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIOS ═════════════════════════════════════════ -->
+  <section id="testimonios">
+    <div class="testimonios__inner">
+
+      <div class="testimonios__header">
+        <span class="testimonios__eyebrow">Resultados reales</span>
+        <h2 class="testimonios__title">Casos de éxito: Testimonios de nuestros alumnos</h2>
+      </div>
+
+      <div class="testimonios__grid">
+
+        <div class="testimonio-card">
+          <video src="Assets/Testimonios/testimonio 1.mp4" controls playsinline class="testimonio-card__video"></video>
+        </div>
+
+        <div class="testimonio-card">
+          <video src="Assets/Testimonios/Testimonio Ortiz.mp4" controls playsinline class="testimonio-card__video"></video>
+        </div>
+
+        <div class="testimonio-card">
+          <video src="Assets/Testimonios/testimonio 3.mp4" controls playsinline class="testimonio-card__video"></video>
+        </div>
+
+        <div class="testimonio-card">
+          <video src="Assets/Testimonios/Testimomio 4.mp4" controls playsinline class="testimonio-card__video"></video>
+        </div>
+
+      </div>
     </div>
   </section>
 
