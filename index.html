@@ -483,6 +483,81 @@
       margin-bottom: 0.25rem;
     }
 
+    /* ── Program overview grid ───────────────────────────────── */
+    .programa__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+
+    .programa__card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .programa__card:hover {
+      border-color: var(--color-blue);
+      box-shadow: 0 0 28px rgba(59, 130, 246, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .programa__card--active {
+      border-color: var(--color-blue);
+      box-shadow: 0 0 32px rgba(59, 130, 246, 0.18);
+    }
+
+    .programa__card-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .programa__card-img-placeholder {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .programa__idsa-letters {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 3.5rem;
+      letter-spacing: 0.15em;
+      color: var(--color-blue);
+      opacity: 0.6;
+    }
+
+    .programa__card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* ── IDSA sub-header ─────────────────────────────────────── */
+    .metodo__sub-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .metodo__sub-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--color-white);
+    }
+
     /* Step number */
     .metodo__step {
       font-family: var(--font-display);
@@ -1232,6 +1307,7 @@
       /* ── Método 4C ── */
       #metodo               { padding: 4.5rem 1.5rem; }
       .metodo__header       { margin-bottom: 2.5rem; }
+      .programa__grid       { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2.5rem; }
       .metodo__grid         { grid-template-columns: 1fr; gap: 1rem; }
       .metodo__card         { padding: 2rem 1.5rem; min-height: 200px; }
       .metodo__step         { font-size: 2.25rem; }
@@ -1512,13 +1588,60 @@
     </div>
   </section>
 
-  <!-- ═══ MÉTODO 4C ════════════════════════════════════════════ -->
+  <!-- ═══ PROGRAMA ACCIÓN IMPERFECTA ══════════════════════════ -->
   <section id="metodo">
     <div class="metodo__inner">
 
+      <!-- Program header -->
       <div class="metodo__header">
-        <span class="metodo__eyebrow">El sistema</span>
-        <h2 class="metodo__title">El Método IDSA</h2>
+        <span class="metodo__eyebrow">El programa</span>
+        <h2 class="metodo__title">Programa Acción Imperfecta</h2>
+      </div>
+
+      <!-- Methods overview: Fishing → IDSA → SEC → AVT -->
+      <div class="programa__grid">
+
+        <div class="programa__card">
+          <img src="Assets/Metodos/Metodo Fishing.webp" alt="Método Fishing" class="programa__card-img" />
+          <div class="programa__card-body">
+            <span class="metodo__step">01</span>
+            <h3 class="metodo__name">Método Fishing</h3>
+          </div>
+        </div>
+
+        <div class="programa__card programa__card--active">
+          <div class="programa__card-img-placeholder">
+            <span class="programa__idsa-letters">IDSA</span>
+          </div>
+          <div class="programa__card-body">
+            <span class="metodo__step">02</span>
+            <h3 class="metodo__name">Método IDSA</h3>
+            <p class="metodo__desc">Impresión · Descubrimiento · Solución · Acuerdo</p>
+          </div>
+        </div>
+
+        <div class="programa__card">
+          <img src="Assets/Metodos/Metodo SEC.webp" alt="Método SEC" class="programa__card-img" />
+          <div class="programa__card-body">
+            <span class="metodo__step">03</span>
+            <h3 class="metodo__name">Método SEC</h3>
+          </div>
+        </div>
+
+        <div class="programa__card">
+          <img src="Assets/Metodos/Metodo AVT.webp" alt="Método AVT" class="programa__card-img" />
+          <div class="programa__card-body">
+            <span class="metodo__step">04</span>
+            <h3 class="metodo__name">Método AVT</h3>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- IDSA detail sub-section -->
+      <div class="metodo__sub-header">
+        <span class="metodo__eyebrow">Detalle</span>
+        <h3 class="metodo__sub-title">El Método IDSA — Las 4 Etapas</h3>
       </div>
 
       <div class="metodo__grid">
