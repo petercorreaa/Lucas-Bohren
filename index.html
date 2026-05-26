@@ -518,22 +518,16 @@
       display: block;
     }
 
-    .programa__card-img-placeholder {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .programa__idsa-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
     }
 
-    .programa__idsa-letters {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 3.5rem;
-      letter-spacing: 0.15em;
-      color: var(--color-blue);
-      opacity: 0.6;
+    .programa__idsa-img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .programa__card-body {
@@ -1610,8 +1604,11 @@
         </div>
 
         <div class="programa__card programa__card--active">
-          <div class="programa__card-img-placeholder">
-            <span class="programa__idsa-letters">IDSA</span>
+          <div class="programa__idsa-preview">
+            <img src="Assets/1. Impresion.webp"      alt="Impresión"     class="programa__idsa-img" />
+            <img src="Assets/2. Descubrimiento.webp" alt="Descubrimiento" class="programa__idsa-img" />
+            <img src="Assets/3. Solucion.webp"        alt="Solución"      class="programa__idsa-img" />
+            <img src="Assets/4. Acuerdo.webp"         alt="Acuerdo"       class="programa__idsa-img" />
           </div>
           <div class="programa__card-body">
             <span class="metodo__step">02</span>
